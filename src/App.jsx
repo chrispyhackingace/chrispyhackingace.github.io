@@ -1,5 +1,6 @@
 import React from 'react'
 import sentences from './data/sentences'
+import profileImg from './assets/chris.jpg'
 
 const Icon = ({name, className=''})=>{
   const icons = {
@@ -98,7 +99,7 @@ const Hero = ()=> (
       <div className="hero-left">
         <div className="profile-and-name">
           <div className="up">
-            <div className="profile-sticker" data-parallax-speed="0.01"><img src="/src/assets/chris.jpg" alt="profile"/></div>
+            <div className="profile-sticker" data-parallax-speed="0.01"><img src={profileImg} alt="profile"/></div>
           </div>
         </div>
       </div>
