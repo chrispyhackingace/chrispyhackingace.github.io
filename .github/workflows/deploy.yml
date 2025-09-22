@@ -2,46 +2,26 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main   # Change this if your default branch is not 'main'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write   # allow pushing to gh-pages
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        # do not persist the checkout credentials so the deploy action can use its own token
-        persist-credentials: false
-        # fetch full history to avoid shallow-clone push issues
-        fetch-depth: 0
+      - uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Build
+        run: npm run build
 
-    - name: Build
-      run: npm run build
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        # token used to push to gh-pages; GITHUB_TOKEN is usually fine for repos you own
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        # branch to publish to (default gh-pages)
-        publish_branch: gh-pages
-        # set a recognizable committer identity (helps in some environments)
-        user_name: github-actions[bot]
-        user_email: github-actions[bot]@users.noreply.github.com
-        # allow the action to overwrite history if needed (careful with force)
-        force_orphan: false
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist   # adjust if your build output is somewhere else
