@@ -13,7 +13,27 @@ html{font-size:20px}
 body{margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 400px at 10% 10%, rgba(61,166,255,0.04), transparent), var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
 .smooth-scroll-enabled{scroll-behavior:smooth}
 .inner{max-width:1600px;margin:0 auto;padding:1.5rem}
-.site-header{position:sticky;top:0;z-index:40;background:transparent;border-bottom:0;padding:0.25rem 0}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+
+  /* apply blur evenly */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* create gradient mask */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,1));
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,1));
+  mask-repeat: no-repeat;
+  mask-size: cover;
+
+  background: transparent; /* keep transparent so only blur shows */
+  padding: 0.5rem 0;
+}
+
 .site-header.scrolled{background:transparent;box-shadow:none}
 .site-header .inner{display:flex;align-items:center;justify-content:space-between}
 .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);letter-spacing:0.6px;font-size:0.9rem}
@@ -64,7 +84,7 @@ body{margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans
 
 .stickyexp{
   position: sticky;
-  top: 0;
+  top: 100px;
   z-index: 30; /* stay above content */
 }
 
