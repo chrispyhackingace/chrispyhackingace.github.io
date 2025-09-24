@@ -116,6 +116,7 @@ const Hero = ()=> (
         </div>
         <div className="name-overlay">
           <div className="name">Hi, I'm <span className="accent">Chris.</span></div>
+          <div className="hero-blurb">aka chrysolysis, chrispyhackingace, chrispyhackerace.</div>
           <div className="hero-blurb">I build stuff. Sometimes it even works!</div>
           <div className="social-row overlay-socials"><Socials /></div>
         </div>
