@@ -122,7 +122,6 @@ const Hero = ()=> (
         </div>
       </div>
     </div>
-    <AudioPlayer />
   </section>
 )
 
