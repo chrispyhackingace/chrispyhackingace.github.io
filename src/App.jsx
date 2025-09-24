@@ -33,9 +33,9 @@ const SOCIAL_LINKS = {
    Leave a key undefined or empty to use the built-in SVG.
 */
 const SOCIAL_ICON_OVERRIDES = {
-  instagram: '/socials/instagram.png',
-  discord: '/socials/discord.png',
-  spotify: '/socials/spotify.png'
+  instagram: './socials/instagram.png',
+  discord: './socials/discord.png',
+  spotify: './socials/spotify.png'
 }
 
 const Header = ()=> (
@@ -190,12 +190,12 @@ const About = () => {
 const Projects = ()=> {
   // Explicit list of 8 projects so you can edit id/title/desc/img in-place.
   const projects = [
-    { id: 'proj-1', title: 'mustangly', blurb: 'Calendly clone built with React and Node.js.', img: '/projects/workinprogress.png' },
-    { id: 'proj-2', title: 'hackWWP', blurb: 'Hackathon website and interface.', img: '/projects/workinprogress.png' },
-    { id: 'proj-3', title: 'golfplusplus', blurb: 'Inspired by Golf (the poker game) and a play on C++, this poker engine is supposedly powered by AI and ML, although it is not very good at its job.', img: '/projects/workinprogress.png' },
-    { id: 'proj-4', title: 'sciotrainer', blurb: 'Scibowl, Scioly, and NOSB trainer inspired by AMCTrivial.', img: '/projects/workinprogress.png' },
-    { id: 'proj-5', title: 'diskord1?!', blurb: 'Discord message compiler.', img: '/projects/discord.png' },
-    { id: 'proj-6', title: 'steve', blurb: 'Self-driving car, built around an Arduino Mega 2560.', img: '/projects/workinprogress.png' }
+  { id: 'proj-1', title: 'mustangly', blurb: 'Calendly clone built with React and Node.js.', img: './projects/workinprogress.png' },
+  { id: 'proj-2', title: 'hackWWP', blurb: 'Hackathon website and interface.', img: './projects/workinprogress.png' },
+  { id: 'proj-3', title: 'golfplusplus', blurb: 'Inspired by Golf (the poker game) and a play on C++, this poker engine is supposedly powered by AI and ML, although it is not very good at its job.', img: './projects/workinprogress.png' },
+  { id: 'proj-4', title: 'sciotrainer', blurb: 'Scibowl, Scioly, and NOSB trainer inspired by AMCTrivial.', img: './projects/workinprogress.png' },
+  { id: 'proj-5', title: 'diskord1?!', blurb: 'Discord message compiler.', img: './projects/discord.png' },
+  { id: 'proj-6', title: 'steve', blurb: 'Self-driving car, built around an Arduino Mega 2560.', img: './projects/workinprogress.png' }
   ]
 
   return (
@@ -428,13 +428,13 @@ function CollapsibleEntry({entry}){
       setLogoLoaded(true)
       return
     }
-    let isMounted = true
-    const candidate = `/logos/${entry.id}.png`
-    const img = new Image()
-    img.onload = ()=>{ if(isMounted){ setLogoUrl(candidate); setLogoLoaded(true) } }
-    img.onerror = ()=>{ if(isMounted){ setLogoLoaded(false) } }
-    img.src = candidate
-    return ()=>{ isMounted = false }
+  let isMounted = true
+  const candidate = `./logos/${entry.id}.png`
+  const img = new Image()
+  img.onload = ()=>{ if(isMounted){ setLogoUrl(candidate); setLogoLoaded(true) } }
+  img.onerror = ()=>{ if(isMounted){ setLogoLoaded(false) } }
+  img.src = candidate
+  return ()=>{ isMounted = false }
   },[entry.logo, entry.id])
   return (
     <div className="timeline-item">
