@@ -472,7 +472,7 @@ function CollapsibleEntry({entry}){
 }
 
 const Timeline = ()=> (
-  <section className="section about">
+  <section id="timeline" className="section about">
     <div className="left-col stickyexp">
         <h2><a href="#timeline">experience</a></h2>
     </div>
