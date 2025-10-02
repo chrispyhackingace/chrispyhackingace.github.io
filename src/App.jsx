@@ -12,6 +12,7 @@ const Icon = ({name, className=''})=>{
   ,spotify: (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.6 14.64c-.2.32-.58.42-.9.22-2.5-1.52-5.64-1.86-9.34-1.02-.36.09-.74-.13-.83-.5-.1-.36.13-.74.5-.83 4.06-.88 7.6-.5 10.46 1.18.32.2.42.58.21.95zM17 11.4c-.25.4-.74.54-1.14.28-2.87-1.86-7.26-2.4-10.66-1.31-.44.13-.9-.11-1.04-.56-.13-.44.11-.9.56-1.04C7.04 8.22 11.78 8.9 15.2 10.9c.41.26.56.8.3 1.5zM16.86 8.28c-.31.5-.96.67-1.47.36-2.92-1.83-7.82-2.07-10.64-1.14-.53.19-1.1-.08-1.3-.61-.19-.52.08-1.1.61-1.3 3.35-1.19 8.74-.88 12.07 1.36.49.31.65 1.06.37 1.33z"/></svg>)
   ,discord: (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 3H4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14l2 2V4a1 1 0 0 0-1-1zM8.5 12.5c-.66 0-1.2-.54-1.2-1.2s.54-1.2 1.2-1.2 1.2.54 1.2 1.2-.54 1.2-1.2 1.2zm7 0c-.66 0-1.2-.54-1.2-1.2s.54-1.2 1.2-1.2 1.2.54 1.2 1.2-.54 1.2-1.2 1.2zM7 16v-1.5c1.1.2 2.2.3 3.5.3s2.4-.1 3.5-.3V16c0 .6-.5 1-1 1H8c-.5 0-1-.4-1-1z"/></svg>)
   ,instagram: (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm5.2-.9a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/></svg>)
+  ,hackwwp: (<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>)
   }
   const icon = icons[name]
   if(!icon) return null
@@ -26,6 +27,7 @@ const SOCIAL_LINKS = {
   spotify: 'https://open.spotify.com/user/31edtu3ucenlcni75tawpxvs3tbm?si=4c1e4bb21b4142e0',
   discord: 'https://discord.com/users/706203796774322278',
   instagram: 'https://www.instagram.com/chrysolysis/',
+  hackwwp: 'https://hackwwp.tech'
 }
 
 /* Optional: override built-in SVG icons with custom images (PNG/SVG/JPG).
@@ -35,7 +37,8 @@ const SOCIAL_LINKS = {
 const SOCIAL_ICON_OVERRIDES = {
   instagram: '/socials/instagram.png',
   discord: '/socials/discord.png',
-  spotify: '/socials/spotify.png'
+  spotify: '/socials/spotify.png',
+  hackwwp: '/socials/hackwwp.png'
 }
 
 const Header = ()=> (
@@ -52,7 +55,7 @@ const Header = ()=> (
 )
 
 const Socials = ()=> {
-  const items = ["github","linkedin","spotify","discord","instagram","twitter","mail","resume"]
+  const items = ["github","linkedin","spotify","discord","instagram","hackwwp","twitter","mail","resume"]
   return (
     <div className="socials">
       {items.map(key=>{
@@ -226,6 +229,19 @@ const Projects = ()=> {
 
 const timelineEntries = [
   {
+    id: 'hackwwp',
+    title: 'Founder, Lead Frontend Developer, Executive Director',
+    org: 'hackWWP',
+    date: 'Sep 2025 — Present',
+    location: 'Hybrid',
+    desc: `hackWWP is a high school student led hackathon dedicated to fostering innovation, collaboration, and learning in the tech community. As the founder, lead frontend developer, and executive director, I spearhead the planning and execution of the event, overseeing everything from website development to participant engagement. My role involves coordinating with sponsors, managing a team of volunteers, and ensuring a seamless experience for all attendees. Through hackWWP, I aim to create an inclusive environment where students can explore their creativity, develop new skills, and connect with like-minded peers.`,
+    type: 'experience',
+    logo: '',
+    links: {
+      website: 'https://hackwwp.tech'
+    }
+  },
+  {
     id: 'nxtlvl',
     title: 'Co-Founder & Head Tutor',
     org: 'NXTLVL Tutoring · Self-employed',
@@ -234,7 +250,9 @@ const timelineEntries = [
     desc: `Co-founder and Head Tutor at NXTLVL Tutoring, a STEM tutoring organization committed to making deep, rigorous learning accessible to all students. It offers personalized instruction in mathematics, physics, and computer science, helping learners at all levels build lasting understanding through logic, clarity, and curiosity. Whether supporting students seeking academic confidence or those pursuing enrichment and competition, NXTLVL Tutoring combines classical thinking with modern strategies to empower every learner to think critically, solve creatively, and grow intellectually.`,
     type: 'experience',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://sites.google.com/view/nxtlvltutoring?pli=1'
+    }
     },
   {
     id: 'mki',
@@ -245,7 +263,9 @@ const timelineEntries = [
     desc: `Programmed competition robots in Java as part of an FRC robotics team, gaining hands-on experience with state machine architecture and real-time control systems. Developed and tested subsystems using WPILib in VSCode, contributing to the robot's autonomous and teleoperated performance. Also participated in scouting efforts by collecting and analyzing data on opposing teams to inform match strategy and alliance decisions.`,
     type: 'experience',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://wwprobotics.org/en-usd'
+    }
   },
   {
     id: 'mustang-math',
@@ -256,7 +276,9 @@ const timelineEntries = [
     desc: `Spent a summer writing problems, creating a tournament, and creating a rigorous math curriculum.`,
     type: 'experience',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://mustangmath.com'
+    }
   },
   {
     id: 'asdan',
@@ -267,7 +289,9 @@ const timelineEntries = [
     desc: `Wrote over 25 problems, reviewed problems written by peers, and gave suggestions for Math Kangaroo China collaboration.`,
     type: 'experience',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://www.seedasdan.com/en/home-en/'
+    }
   },
   {
     id: 'wwppc',
@@ -278,7 +302,9 @@ const timelineEntries = [
     desc: `Served as a problem tester for the West Windsor-Plainsboro Informatics Tournament (WWPIT), reviewing and testing contest problems for correctness, clarity, and appropriate difficulty levels. Provided constructive feedback to problemsetters to refine both logic and test cases.`,
     type: 'volunteer',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://wwppc.tech'
+    }
   },
   {
     id: 'wwppc',
@@ -289,7 +315,9 @@ const timelineEntries = [
     desc: `Contributed to both the frontend and backend development of the contest website, actively enhancing the user interface to improve accessibility and user experience. Collaborated with team members on UI/UX improvements and feature implementation. Took initiative in outreach efforts by contacting multiple corporations for sponsorships, helping the team raise $700 in cash, $300 in contest merchandise, and more than $2000 in X-Camp lesson credits.`,
     type: 'experience',
     logo: '',
-    links: {}
+    links: {
+        website: 'https://wwppc.tech'
+    }
   },
   {
     id: 'prism',
@@ -312,7 +340,9 @@ const timelineEntries = [
     desc: `Active member of AYLUS, participating in youth-led volunteer initiatives aimed at serving the local community. Contributed to projects including educational outreach, cultural events, and service activities across the Greater Princeton area to promote leadership and civic responsibility.`,
     type: 'volunteer',
     logo: '',
-    links: {}
+    links: {
+        website: 'https://aylus.org'
+    }
   },
   {
     id: 'fll',
@@ -323,7 +353,9 @@ const timelineEntries = [
     desc: `As a volunteer mentor for FIRST LEGO League, guided and supported young students exploring STEM concepts through hands-on robotics challenges. Helped foster teamwork, problem-solving, and creativity while encouraging a passion for engineering and innovation.`,
     type: 'volunteer',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://www.firstlegoleague.org/'
+    }
   },
   {
     id: 'stem',
@@ -334,7 +366,9 @@ const timelineEntries = [
     desc: `Tutor students in mathematics (pre-algebra to geometry) and basic programming (Python, Scratch) both in-person and online using a project-based approach that emphasizes conceptual understanding and real-world applications.`,
     type: 'volunteer',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://www.studentsofstem.org'
+    }
   },
   {
     id: 'upchieve',
@@ -345,7 +379,9 @@ const timelineEntries = [
     desc: `Provide free, on-demand math, science, and SAT tutoring to underserved high school students through UPchieve’s virtual platform. Support academic growth by offering personalized guidance and fostering student confidence.`,
     type: 'volunteer',
     logo: '',
-    links: {}
+    links: {
+      website: 'https://upchieve.org/'
+    }
   }
 ]
 
